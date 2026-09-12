@@ -1,70 +1,147 @@
-# Getting Started with Create React App
+# Progress Bar
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A lightweight React progress bar that smoothly advances from 0% to 100% and clearly communicates its current loading state.
+
+---
+
+## 📬 Submission Links
+
+| | Link |
+|---|---|
+| 🌐 **Hosted Link** | [Click here](https://strong-lebkuchen-01fc36.netlify.app/) |
+| 🐙 **GitHub Repository** | [Click here](https://github.com/Vihanga-Ops/Progress-Bar) |
+
+> Replace either URL above if your final deployment or repository link changes.
+
+---
+
+## Preview
+
+> A clean, responsive progress indicator with animated percentage updates and a completion state.
+
+---
+
+## Features
+
+| Feature | Description |
+|---|---|
+| **Animated Progress** | Progress increases automatically from 0% to 100%. |
+| **Live Percentage** | The current progress value is displayed below the bar. |
+| **Loading State** | Shows a purple progress bar and `Loading` label while progress is active. |
+| **Completion State** | Switches to a green bar and `Complete` label at 100%. |
+| **Responsive Layout** | The centered card adapts to smaller screen sizes. |
+| **Automatic Cleanup** | The interval is cleaned up when the component unmounts. |
+
+---
+
+## Tech Stack
+
+| Technology | Usage |
+|---|---|
+| **React** | Builds the progress bar component and user interface. |
+| **React useState** | Stores the current percentage value. |
+| **React useEffect** | Runs and cleans up the progress interval. |
+| **JavaScript** | Controls the progress logic and completion state. |
+| **Inline Styles** | Defines the component layout, colors, spacing, and transitions. |
+
+---
+
+## Project Structure
+
+```text
+progress-bar/
+├── public/
+│   └── index.html
+├── src/
+│   ├── App.js             # Root component
+│   ├── Progressbar.jsx    # Animated progress bar component
+│   ├── App.css            # App-level stylesheet
+│   ├── index.css          # Global stylesheet
+│   └── index.js           # React entry point
+├── package.json
+└── README.md
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v14 or above)
+- npm (included with Node.js)
+
+### Installation
+
+1. Clone the repository.
+2. Open the project directory.
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm start
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## Build for Production
+
+```bash
+npm run build
+```
+
+This creates an optimized production build in the `build/` folder.
+
+---
 
 ## Available Scripts
 
-In the project directory, you can run:
+| Command | Description |
+|---|---|
+| `npm start` | Runs the app in development mode. |
+| `npm test` | Runs the test suite in interactive watch mode. |
+| `npm run build` | Creates an optimized production build. |
+| `npm run eject` | Ejects the Create React App configuration. |
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## How It Works
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The component starts at `0` and uses a timer to increase the value by `1` every 50 milliseconds. Once the value reaches `100`, the timer stops and the interface changes from the loading style to the completion style.
 
-### `npm test`
+```jsx
+const [percentage, setPercentage] = useState(0);
+const isComplete = percentage >= 100;
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The progress bar width is controlled by the current percentage:
 
-### `npm run build`
+```jsx
+width: `${percentage}%`
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Design Tokens
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Token | Value | Usage |
+|---|---|---|
+| **Page Background** | `#f0f4ff` | Main application background. |
+| **Card Background** | `#ffffff` | Progress card surface. |
+| **Progress Purple** | `#6366f1` | Loading bar and status text. |
+| **Completion Green** | `#22c55e` | Completed bar and status text. |
+| **Track Gray** | `#e2e8f0` | Empty progress track. |
+| **Text Slate** | `#1e293b` | Component heading. |
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## License
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project was created for educational purposes.
